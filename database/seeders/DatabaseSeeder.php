@@ -13,6 +13,39 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $seeders = app()->environment('production')
+            ? $this->seedersProduction()
+            : $this->seedersDevelopment();
+
+        $this->call($seeders);
+    }
+
+    /**
+     * @return string[]
+     */
+    private function seedersProduction(): array
+    {
+        return [
+            PermissionSeeder::class,
+            RoleSeeder::class,
+            UserSeeder::class,
+        ];
+    }
+
+    /**
+     * @return string[]
+     */
+    private function seedersDevelopment(): array
+    {
+
+        return [
+            PermissionSeeder::class,
+            RoleSeeder::class,
+            UserSeeder::class,
+            ScheduleSeeder::class,
+            AirConditionerSeeder::class,
+            LaboratorySeeder::class,
+            LaboratoryAccessSeeder::class
+        ];
     }
 }
