@@ -18,7 +18,7 @@ class CreateAirConditionersTable extends Migration
             $table->foreignId('laboratory_id');
             $table->string('brand');
             $table->string('type');
-            $table->boolean('status');
+            $table->boolean('active')->default(false);
             $table->timestamps();
             $table->foreign('laboratory_id')->references('id')->on('laboratories');
         });

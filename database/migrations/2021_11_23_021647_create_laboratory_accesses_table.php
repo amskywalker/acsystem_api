@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLaboratoryAccessTable extends Migration
+class CreateLaboratoryAccessesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateLaboratoryAccessTable extends Migration
      */
     public function up()
     {
-        Schema::create('laboratory_access', function (Blueprint $table) {
+        Schema::create('laboratory_accesses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('laboratory_id');
