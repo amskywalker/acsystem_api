@@ -23,7 +23,7 @@ class AuthController extends Controller
 
         return $this->success([
             'token' => auth()->user()->createToken('API Token')->plainTextToken
-        ]);
+        ], "Login successful");
     }
 
     public function logout(): JsonResponse
